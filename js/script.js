@@ -39,12 +39,26 @@ hashCode = function(str){
 * Send the new (shortURL,longURL) to server
 */
 sendToServer = function (shortURL,inputURL) {
-  console.log('Save url to server');
-}
-
-getRealURL = function (shortURL) {
-  console.log('Query to get URL from server');
-  return window.location.origin + window.location.pathname;
+  if (window.XMLHttpRequest) {
+    // code for IE7+, Firefox, Chrome, Opera, Safari
+    xmlhttp=new XMLHttpRequest();
+  } else { // code for IE6, IE5
+    xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+  xmlhttp.onreadystatechange=function() {
+    if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+      response = xmlhttp.responseText;
+      console.log('Response: ' + response);
+      var listLongURLs = response.split(';');
+      if(listLongURLs.length>2||listLongURLs.length==0){
+        document.getElementById("short-url").innerHTML="DB ERROR";
+      }else{
+        window.location.replace(listLongURLs[0]);
+      }
+    }
+  }
+  xmlhttp.open("GET","php/insertURL.php?k="+shortURL+"&v="+inputURL,true);
+  xmlhttp.send();
 }
 
 getRealURL = function (shortURL) {
@@ -70,7 +84,7 @@ getRealURL = function (shortURL) {
       }
     }
   }
-  xmlhttp.open("GET","php/connectdb.php?k="+shortURL,true);
+  xmlhttp.open("GET","php/getRealURL.php?k="+shortURL,true);
   xmlhttp.send();
 }
 
