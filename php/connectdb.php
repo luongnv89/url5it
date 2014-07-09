@@ -9,8 +9,11 @@ if(!$conn){
 mysql_select_db('ticdb') or die('Could not select database');
 $query = "SELECT longurl FROM urltable WHERE shorturl='".$key."'";
 $result = mysql_query($query) or die('Query failed: '.mysql_error());
-$row = mysql_fetch_array($result);
-echo "Success".$row['longurl'];
+while($row = mysql_fetch_array($result,MYSQL_ASSOC)){
+	foreach ($row as $col_value){
+		echo "<div class='long-url'>$col_value</div>";
+	}	
+}
 mysql_free_result($result);
 mysql_close($conn);
 ?>
