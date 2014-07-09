@@ -1,5 +1,5 @@
 function startingPoint () {
-  var shortURL = window.location.search;
+  var shortURL = window.location.search.replace('?k=','');
   console.log('shortURL: ' + shortURL);
   if(shortURL.length!=""){
     redirectURL = getRealURL(shortURL);
