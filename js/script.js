@@ -68,11 +68,12 @@ getRealURL = function (shortURL) {
     if (xmlhttp.readyState==4 && xmlhttp.status==200) {
       var response = xmlhttp.responseText;
       console.log('Response: ' + response);
-      if(response.indexOf('Success')>-1){
-        window.location.replace(response.replace('Success',''));  
-      }else{
-        document.getElementById("short-url").innerHTML=response;
-      }
+      document.getElementById("short-url").innerHTML=response;
+      // if(response.indexOf('Success')>-1){
+      //   window.location.replace(response.replace('Success',''));  
+      // }else{
+        
+      // }
       
     }
   }
