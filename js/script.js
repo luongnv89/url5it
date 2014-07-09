@@ -68,7 +68,7 @@ getRealURL = function (shortURL) {
     if (xmlhttp.readyState==4 && xmlhttp.status==200) {
       response = xmlhttp.responseText;
       console.log('Response: ' + response);
-      var listLongURLs = response.querySelectorAll('long-url');
+      var listLongURLs = response.split(';');
       if(listLongURLs.length>2||listLongURLs.length==0){
         document.getElementById("short-url").innerHTML="DB ERROR";
       }else{
