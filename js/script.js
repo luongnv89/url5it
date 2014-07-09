@@ -2,13 +2,7 @@ function startingPoint () {
   var shortURL = window.location.search.replace('?k=','');
   console.log('shortURL: ' + shortURL);
   if(shortURL.length!=""){
-    redirectURL = getRealURL(shortURL);
-    console.log('redirectURL: ' + redirectURL);
-    if(validateUrl(redirectURL)){
-      window.location.replace(redirectURL);
-    }else{
-      console.log('The redirect url is not validate');
-    }
+    getRealURL(shortURL);
   }
   var btConvert = document.getElementById('btConvert');
   btConvert.addEventListener('click',convertURL,false);
@@ -72,7 +66,7 @@ getRealURL = function (shortURL) {
       if(listLongURLs.length>2||listLongURLs.length==0){
         document.getElementById("short-url").innerHTML="DB ERROR";
       }else{
-        return listLongURLs[0];
+        window.location.replace(listLongURLs[0]);
       }
     }
   }
