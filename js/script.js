@@ -41,6 +41,9 @@ hashCode = function(str){
     return hash;
 }
 
+/**
+* Send the new (shortURL,longURL) to server
+*/
 sendToServer = function (shortURL,inputURL) {
   console.log('Save url to server');
 }
@@ -48,6 +51,32 @@ sendToServer = function (shortURL,inputURL) {
 getRealURL = function (shortURL) {
   console.log('Query to get URL from server');
   return window.location.origin + window.location.pathname;
+}
+
+getRealURL = function (shortURL) {
+  if (shortURL=="") {
+    document.getElementById("short-url").innerHTML="";
+    return;
+  } 
+  if (window.XMLHttpRequest) {
+    // code for IE7+, Firefox, Chrome, Opera, Safari
+    xmlhttp=new XMLHttpRequest();
+  } else { // code for IE6, IE5
+    xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+  xmlhttp.onreadystatechange=function() {
+    if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+      var response = xmlhttp.responseText;
+      if(response.indexOf('Success')>-1){
+        window.location.replace(response.replace('Success',''));  
+      }else{
+        document.getElementById("short-url").innerHTML=response;
+      }
+      
+    }
+  }
+  xmlhttp.open("GET","php/connectdb.php?k="+shortURL,true);
+  xmlhttp.send();
 }
 
 document.addEventListener('DOMContentLoaded',startingPoint,false);
