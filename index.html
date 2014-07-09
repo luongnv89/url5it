@@ -1,0 +1,104 @@
+<!DOCTYPE>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- jQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <!-- Bootstrap 3.2.0 -->
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  <!-- End Bootstrap 3.2.0 -->
+  <style type="text/css">
+    h1{
+      font:bold 30px Tahoma;
+    }
+    header, session, footer, aside, nav, article, hgroup{
+      display:block;
+    }
+    body{
+      width:100%;
+      display:-webkit-box;
+      -webkit-box-pack:center;
+    }
+    #big_wrapper{
+      max-width:1000px;
+      margin:10px 0px;
+      display:-webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-box-flex:1;
+    }
+    #top_header{
+      padding: 10px;
+    }
+    #the_footer{
+      width: 100%;
+      text-align:center;
+      padding: 5px;
+      border-top:2px solid green;
+      margin-top: 5px;
+      position:absolute;
+      bottom:0;
+      left:0;
+    }
+
+    .link_icon{
+      width: 32px;
+      margin: 5px;
+    }
+
+    #main-contain{
+      display:-webkit-box;
+      -webkit-box-orient:vertical;
+    }
+  </style>
+  <title>Enter your message to share</title>
+  <link rel="shortcut icon" href="images/icon.ico">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/script.js"></script>
+</head>
+<body>
+  <!--Main body --> 
+  <div id='big_wrapper'>
+    <!--Header -->
+    <header id="top_header">
+      <h1>Tic </h4>
+      <h4 id='slogan-text'>Convert long url to very short url - like a tic</h4>
+    </header>
+    <!--Main contain -->
+    <div class="container bs-docs-container" id='main-contain'>
+        <div class="input-group" style="margin-top:50px">
+          <input type="text" class="form-control" id='input-url'>
+          <span class="input-group-btn">
+            <button class="btn btn-default" type="button" id='btConvert'>Go!</button>
+          </span>
+        </div><!-- /input-group -->
+        <p></p>
+        <div class="alert alert-success" role="alert" style="margin-top:30px">
+          <span id='short-url'> Here is your short url</span>
+        </div>
+    <!--End of main contain -->
+    </div>
+
+<!--Footer -->
+<footer id='the_footer'>
+  <div id='social_network'>
+    <a href="mailto:luongnv89@gmail.com"><img src="images/email.png" class='link_icon'></a>
+    <a href="http://fr.linkedin.com/in/luongnv"><img src="images/linkedin.png" class='link_icon'></a>
+    <a href="https://www.facebook.com/luongnv89"><img src="images/facebook.png" class='link_icon'></a>
+    <a href="https://twitter.com/luongnv89"><img src="images/twitter.png" class='link_icon'></a>
+  </div>
+  Nguyen Van Luong - <a href="http://luongnv.info">http://luongnv.info</a> - <a href="mailto: luongnv89@gmail.com">luongnv89@gmail.com</a>
+  <div> Built with <a href="http://getbootstrap.com/">Bootstrap</a>. Icons from <a href="https://www.iconfinder.com/">Iconfinder</a> </div>
+</footer>
+<!-- End of main body -->
+</div>
+</body>
+</html>
