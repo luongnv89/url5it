@@ -66,15 +66,14 @@ getRealURL = function (shortURL) {
   }
   xmlhttp.onreadystatechange=function() {
     if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-      var response = xmlhttp.responseText;
+      response = xmlhttp.responseText;
       console.log('Response: ' + response);
-      document.getElementById("short-url").innerHTML=response;
-      // if(response.indexOf('Success')>-1){
-      //   window.location.replace(response.replace('Success',''));  
-      // }else{
-        
-      // }
-      
+      var listLongURLs = response.querySelectorAll('long-url');
+      if(listLongURLs.length>2||listLongURLs.length==0){
+        document.getElementById("short-url").innerHTML="DB ERROR";
+      }else{
+        return listLongURLs[0];
+      }
     }
   }
   xmlhttp.open("GET","php/connectdb.php?k="+shortURL,true);
