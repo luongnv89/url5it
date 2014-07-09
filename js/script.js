@@ -47,7 +47,7 @@ sendToServer = function (shortURL,inputURL) {
 
 getRealURL = function (shortURL) {
   console.log('Query to get URL from server');
-  return window.location.origin;
+  return window.location.origin + window.location.pathname;
 }
 
 document.addEventListener('DOMContentLoaded',startingPoint,false);
