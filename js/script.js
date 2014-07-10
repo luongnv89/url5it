@@ -91,7 +91,7 @@ tic={
        client.on('ready',function (readyEvent) {
         ZeroClipboard.setData('text/plain',text);
         client.on('aftercopy',function (event) {
-          event.target.style.display='none';
+          // event.target.style.display='none';
           alert('Copied text to clipboard: '+event.data['text/plain']);
         });
       });
