@@ -97,7 +97,7 @@ tic={
         ZeroClipboard.setData('text/plain',text);
         client.on('aftercopy',function (event) {
           message.setAttribute('class','alert-success');
-          message.innerHTML=shortURL+" is copied to clipboard!";
+          message.innerHTML=text+" is copied to clipboard!";
         });
       });
    }
