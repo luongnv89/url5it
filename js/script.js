@@ -2,7 +2,7 @@
 tic={
   numbers:['-','1','2','3','4','5','6','7','8','9','0'],
   chars  :['x','l','u','o','n','g','a','b','t','i','c'],
-  message:null;
+  message:null,
   startingPoint : function () {
     var shortURL = window.location.search.replace('?','');
     console.log('shortURL: ' + shortURL);
@@ -97,7 +97,7 @@ tic={
         ZeroClipboard.setData('text/plain',text);
         client.on('aftercopy',function (event) {
           message.setAttribute('class','alert-success');
-          message.innerHTML=shortURL+" is copied to clipboard!"+;
+          message.innerHTML=shortURL+" is copied to clipboard!";
         });
       });
    }
