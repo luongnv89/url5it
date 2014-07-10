@@ -13,7 +13,7 @@ convertURL = function () {
   var inputURL = document.getElementById('input-url');
   if(validateUrl(inputURL.value)){
     shortURL = hashCode(inputURL.value);
-    sendToServer(shortURL,inputURL);
+    sendToServer(shortURL,inputURL.value);
   }else{
     document.getElementById('short-url').innerHTML = "Your input-url is not validate";
   }
