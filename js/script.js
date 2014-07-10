@@ -2,7 +2,7 @@
 tic={
   numbers:['-','1','2','3','4','5','6','7','8','9','0'],
   chars  :['x','l','u','o','n','g','a','b','t','i','c'],
-
+  message:null;
   startingPoint : function () {
     var shortURL = window.location.search.replace('?','');
     console.log('shortURL: ' + shortURL);
@@ -11,6 +11,7 @@ tic={
     }
     var btConvert = document.getElementById('btConvert');
     btConvert.addEventListener('click',tic.convertURL,false);
+    message = document.getElementById('messages');
   },
 
   convertURL : function () {
@@ -20,7 +21,8 @@ tic={
       shortURL = tic.convertHashCode((inputURL.value).hashCode());
       tic.sendToServer(shortURL,inputURL.value);
     }else{
-      document.getElementById('short-url').value = "Your input-url is not validate";
+      message.setAttribute('class','alert-warning');
+      message.innerHTML="Your input-url is not validate";
     }
   },
 
@@ -39,9 +41,12 @@ tic={
         response = xmlhttp.responseText;
         console.log('Response: ' + response);
         if(response.indexOf('SUCCESS')<0){
-          document.getElementById("short-url").value="Cannot write to db";
+          message.setAttribute('class','alert-danger');
+          message.innerHTML="Cannot write to db";
         }else{
           document.getElementById("short-url").value=window.location+"?"+shortURL;
+          message.setAttribute('class','alert-success');
+          message.innerHTML="Copy and tweet";
           tic.copyToClipboard();
         }
       }
@@ -63,7 +68,8 @@ tic={
         console.log('Response: ' + response);
         var listLongURLs = response.split(';');
         if(listLongURLs.length>2||listLongURLs.length==0){
-          document.getElementById("short-url").value="DB ERROR";
+          message.setAttribute('class','alert-danger');
+          message.innerHTML="Sorry. I could not get real url of "+shortURL;
         }else{
           window.location.replace(listLongURLs[0]);
         }
@@ -90,8 +96,8 @@ tic={
        client.on('ready',function (readyEvent) {
         ZeroClipboard.setData('text/plain',text);
         client.on('aftercopy',function (event) {
-          // event.target.style.display='none';
-          alert('Copied text to clipboard: '+event.data['text/plain']);
+          message.setAttribute('class','alert-success');
+          message.innerHTML=shortURL+" is copied to clipboard!"+;
         });
       });
    }
