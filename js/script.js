@@ -42,7 +42,7 @@ tic={
           document.getElementById("short-url").value="Cannot write to db";
         }else{
           document.getElementById("short-url").value=window.location+"?"+shortURL;
-          copyToClipboard();
+          tic.copyToClipboard();
         }
       }
     }
