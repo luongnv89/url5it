@@ -52,7 +52,7 @@ tic={
         }
       }
     }
-    xmlhttp.open("GET","php/insertURL.php?k="+shortURL+"&v="+inputURL,true);
+    xmlhttp.open("GET","php/insertURL.php?k="+key+"&v="+inputURL,true);
     xmlhttp.send();
   },
 
