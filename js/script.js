@@ -1,5 +1,5 @@
 function startingPoint () {
-  var shortURL = window.location.search.replace('?k=','');
+  var shortURL = window.location.search.replace('?','');
   console.log('shortURL: ' + shortURL);
   if(shortURL.length!=""){
     getRealURL(shortURL);
