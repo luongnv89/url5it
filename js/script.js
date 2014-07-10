@@ -21,7 +21,7 @@ tic={
       shortURL = tic.convertHashCode((inputURL.value).hashCode());
       tic.sendToServer(shortURL,inputURL.value);
     }else{
-      message.setAttribute('class','alert-warning');
+      message.setAttribute('class','alert alert-warning');
       message.innerHTML="Your input-url is not validate";
     }
   },
@@ -41,11 +41,11 @@ tic={
         response = xmlhttp.responseText;
         console.log('Response: ' + response);
         if(response.indexOf('SUCCESS')<0){
-          message.setAttribute('class','alert-danger');
+          message.setAttribute('class','alert alert-danger');
           message.innerHTML="Cannot write to db";
         }else{
           document.getElementById("short-url").value=window.location+"?"+shortURL;
-          message.setAttribute('class','alert-success');
+          message.setAttribute('class','alert alert-success');
           message.innerHTML="Copy and tweet";
           tic.copyToClipboard();
         }
@@ -68,7 +68,7 @@ tic={
         console.log('Response: ' + response);
         var listLongURLs = response.split(';');
         if(listLongURLs.length>2||listLongURLs.length==0){
-          message.setAttribute('class','alert-danger');
+          message.setAttribute('class','alert alert-danger');
           message.innerHTML="Sorry. I could not get real url of "+shortURL;
         }else{
           window.location.replace(listLongURLs[0]);
@@ -96,8 +96,8 @@ tic={
        client.on('ready',function (readyEvent) {
         ZeroClipboard.setData('text/plain',text);
         client.on('aftercopy',function (event) {
-          message.setAttribute('class','alert-success');
-          message.innerHTML=text+" is copied to clipboard!";
+          message.setAttribute('class','alert alert-success');
+          message.innerHTML="'"+text+"' is copied to your Clipboard!";
         });
       });
    }
