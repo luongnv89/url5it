@@ -11,8 +11,6 @@ tic={
     }
     var btConvert = document.getElementById('btConvert');
     btConvert.addEventListener('click',tic.convertURL,false);
-    var btCopy = document.getElementById('btCopy');
-    btCopy.addEventListener('click',tic.copyToClipboard,false);
   },
 
   convertURL : function () {
@@ -44,6 +42,7 @@ tic={
           document.getElementById("short-url").value="Cannot write to db";
         }else{
           document.getElementById("short-url").value=window.location+"?"+shortURL;
+          copyToClipboard();
         }
       }
     }
