@@ -11,6 +11,8 @@ tic={
     }
     var btConvert = document.getElementById('btConvert');
     btConvert.addEventListener('click',tic.convertURL,false);
+    var btCopy = document.getElementById('btCopy');
+    btCopy.addEventListener('click',tic.copyToClipboard,false);
   },
 
   convertURL : function () {
@@ -80,7 +82,21 @@ tic={
       ret+=tic.chars[index];
     }
     return ret; 
-  }
+  },
+
+  copyToClipboard:function(){
+    var text = document.getElementById('short-url').value;    
+    if(tic.validateUrl(text)){
+       var client =new ZeroClipboard(document.getElementById('btCopy'));
+       client.on('ready',function (readyEvent) {
+        ZeroClipboard.setData('text/plain',text);
+        client.on('aftercopy',function (event) {
+          event.target.style.display='none';
+          alert('Copied text to clipboard: '+event.data['text/plain']);
+        });
+      });
+   }
+ }
 
 }
 
@@ -95,5 +111,7 @@ String.prototype.hashCode = function() {
   if(Number(hash)<0) return (-(Number(hash)));
   else return hash;
 };
+
+
 
 document.addEventListener('DOMContentLoaded',tic.startingPoint,false);
