@@ -22,7 +22,7 @@ tic={
       shortURL = tic.convertHashCode((inputURL.value).hashCode());
       tic.sendToServer(shortURL,inputURL.value);
     }else{
-      document.getElementById('short-url').innerHTML = "Your input-url is not validate";
+      document.getElementById('short-url').value = "Your input-url is not validate";
     }
   },
 
@@ -41,9 +41,9 @@ tic={
         response = xmlhttp.responseText;
         console.log('Response: ' + response);
         if(response.indexOf('SUCCESS')<0){
-          document.getElementById("short-url").innerHTML="Cannot write to db";
+          document.getElementById("short-url").value="Cannot write to db";
         }else{
-          document.getElementById("short-url").innerHTML=window.location+"?"+shortURL;
+          document.getElementById("short-url").value=window.location+"?"+shortURL;
         }
       }
     }
@@ -64,7 +64,7 @@ tic={
         console.log('Response: ' + response);
         var listLongURLs = response.split(';');
         if(listLongURLs.length>2||listLongURLs.length==0){
-          document.getElementById("short-url").innerHTML="DB ERROR";
+          document.getElementById("short-url").value="DB ERROR";
         }else{
           window.location.replace(listLongURLs[0]);
         }
