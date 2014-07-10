@@ -7,6 +7,7 @@ tic={
     var shortURL = window.location.search.replace('?','');
     console.log('shortURL: ' + shortURL);
     if(shortURL.length!=""){
+      console.log('Request server to get real url');
       tic.getRealURL(shortURL);
     }
     var btConvert = document.getElementById('btConvert');
@@ -15,11 +16,13 @@ tic={
   },
 
   convertURL : function () {
-    var shortURL='';
+    var key='';
     var inputURL = document.getElementById('input-url');
+    console.log('Input URL: ' + inputURL);
     if(tic.validateUrl(inputURL.value)){
-      shortURL = tic.convertHashCode((inputURL.value).hashCode());
-      tic.sendToServer(shortURL,inputURL.value);
+      key = tic.convertHashCode((inputURL.value).hashCode());
+      console.log('Key: '+ key);
+      tic.sendToServer(key,inputURL.value);
     }else{
       message.setAttribute('class','alert alert-warning');
       message.innerHTML="Your input-url is not validate";
@@ -31,6 +34,7 @@ tic={
   },
 
   sendToServer : function (key,inputURL) {
+    console.log('Send to server: key: ' + key+"; inputURL: " + inputURL);
     if (window.XMLHttpRequest) {
       xmlhttp=new XMLHttpRequest();
     } else { 
@@ -50,6 +54,9 @@ tic={
           message.innerHTML="Long URL: " + inputURL.length+' (cs). Short URL: '+shortURL.length+' (cs). You saved: '+ (inputURL.length-shortURL.length)+' (cs)';
           tic.copyToClipboard();
         }
+      }else{
+          message.setAttribute('class','alert alert-danger');
+          message.innerHTML="Response status code: "+xmlhttp.status;
       }
     }
     xmlhttp.open("GET","php/insertURL.php?k="+key+"&v="+inputURL,true);
@@ -57,7 +64,7 @@ tic={
   },
 
   getRealURL : function (shortURL) {
-    console.log('Get real url for: ' + shortURL);
+    console.log('Get real url with: key=' + shortURL);
     if (window.XMLHttpRequest) {
       xmlhttp=new XMLHttpRequest();
     } else { 
@@ -74,6 +81,9 @@ tic={
         }else{
           window.location.replace(listLongURLs[0]);
         }
+      }else{
+          message.setAttribute('class','alert alert-danger');
+          message.innerHTML="Response status code: "+xmlhttp.status;
       }
     }
     xmlhttp.open("GET","php/getRealURL.php?k="+shortURL,true);
