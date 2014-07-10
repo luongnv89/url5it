@@ -14,7 +14,6 @@ convertURL = function () {
   if(validateUrl(inputURL.value)){
     shortURL = window.location+"?"+hashCode(inputURL.value);
     sendToServer(shortURL,inputURL);
-    document.getElementById('short-url').innerHTML = shortURL;
   }else{
     document.getElementById('short-url').innerHTML = "Your input-url is not validate";
   }
@@ -49,11 +48,10 @@ sendToServer = function (shortURL,inputURL) {
     if (xmlhttp.readyState==4 && xmlhttp.status==200) {
       response = xmlhttp.responseText;
       console.log('Response: ' + response);
-      var listLongURLs = response.split(';');
-      if(listLongURLs.length>2||listLongURLs.length==0){
-        document.getElementById("short-url").innerHTML="DB ERROR";
+      if(!response.indexOf('SUCCESS')){
+        document.getElementById("short-url").innerHTML="Cannot write to db";
       }else{
-        window.location.replace(listLongURLs[0]);
+        document.getElementById("short-url").innerHTML=shortURL;
       }
     }
   }
