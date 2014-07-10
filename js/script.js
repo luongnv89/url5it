@@ -12,7 +12,7 @@ convertURL = function () {
   var shortURL='';
   var inputURL = document.getElementById('input-url');
   if(validateUrl(inputURL.value)){
-    shortURL = window.location+"?"+hashCode(inputURL.value);
+    shortURL = hashCode(inputURL.value);
     sendToServer(shortURL,inputURL);
   }else{
     document.getElementById('short-url').innerHTML = "Your input-url is not validate";
@@ -48,10 +48,10 @@ sendToServer = function (shortURL,inputURL) {
     if (xmlhttp.readyState==4 && xmlhttp.status==200) {
       response = xmlhttp.responseText;
       console.log('Response: ' + response);
-      if(!response.indexOf('SUCCESS')){
+      if(response.indexOf('SUCCESS')<0){
         document.getElementById("short-url").innerHTML="Cannot write to db";
       }else{
-        document.getElementById("short-url").innerHTML=shortURL;
+        document.getElementById("short-url").innerHTML=window.location+"?"+shortURL;
       }
     }
   }
