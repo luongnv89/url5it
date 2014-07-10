@@ -44,9 +44,6 @@
       padding: 5px;
       border-top:2px solid green;
       margin-top: 5px;
-      position:absolute;
-      bottom:0;
-      left:0;
     }
 
     .link_icon{
@@ -63,27 +60,39 @@
   <link rel="shortcut icon" href="images/icon.ico">
   <link rel="stylesheet" href="css/style.css">
   <script src="js/script.js"></script>
+  <script src="js/ZeroClipboard.js"></script>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-51957988-3', 'auto');
+    ga('send', 'pageview');
+  </script>
 </head>
 <body>
   <!--Main body --> 
   <div id='big_wrapper'>
     <!--Header -->
     <header id="top_header">
-      <h1>Tic </h4>
+      <h1>Tic</h1>
       <h4 id='slogan-text'>Shorten URL</h4>
     </header>
     <!--Main contain -->
     <div class="container bs-docs-container" id='main-contain'>
-        <div class="input-group" style="margin-top:50px;width:80%" >
-          <input type="text" class="form-control" id='input-url'>
+        <div class="input-group" style="width:80%" >
+          <input type="text" class="form-control" id='input-url' placeholder="Paste the long URL here and ... Tic!">
           <span class="input-group-btn">
-            <button class="btn btn-default" type="button" id='btConvert'>Go!</button>
+            <button class="btn btn-default" type="button" id='btConvert'>Tic !</button>
           </span>
         </div><!-- /input-group -->
-        <p></p>
-        <div class="alert alert-success" role="alert" style="margin-top:30px;width:80%">
-          <span id='short-url'> Here is your short url</span>
-        </div>
+         <div class="input-group" style="margin-top:30px;margin-bottom: 30px;width:80%" >
+          <input type="text" class="form-control" id='short-url' placeholder="The short url is here. Coppy and tweet!" readonly>
+          <span class="input-group-btn">
+            <button class="btn btn-default" type="button" id='btCopy'>Copy</button>
+          </span>
+        </div><!-- /input-group -->
     <!--End of main contain -->
     </div>
 
@@ -96,7 +105,7 @@
     <a href="https://twitter.com/luongnv89"><img src="images/twitter.png" class='link_icon'></a>
   </div>
   Nguyen Van Luong - <a href="http://luongnv.info">http://luongnv.info</a> - <a href="mailto: luongnv89@gmail.com">luongnv89@gmail.com</a>
-  <div> Built with <a href="http://getbootstrap.com/">Bootstrap</a>. Icons from <a href="https://www.iconfinder.com/">Iconfinder</a> </div>
+  <!-- <div> Built with <a href="http://getbootstrap.com/">Bootstrap</a>. Icons from <a href="https://www.iconfinder.com/">Iconfinder</a> </div> -->
 </footer>
 <!-- End of main body -->
 </div>
