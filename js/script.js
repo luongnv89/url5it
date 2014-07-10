@@ -60,10 +60,7 @@ sendToServer = function (shortURL,inputURL) {
 }
 
 getRealURL = function (shortURL) {
-  if (shortURL=="") {
-    document.getElementById("short-url").innerHTML="";
-    return;
-  } 
+  console.log('Get real url for: ' + shortURL);
   if (window.XMLHttpRequest) {
     // code for IE7+, Firefox, Chrome, Opera, Safari
     xmlhttp=new XMLHttpRequest();
