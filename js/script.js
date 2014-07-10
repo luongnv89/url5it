@@ -46,7 +46,7 @@ tic={
         }else{
           document.getElementById("short-url").value=window.location+"?"+shortURL;
           message.setAttribute('class','alert alert-success');
-          message.innerHTML="Copy and tweet";
+          message.innerHTML="Long URL: " + inputURL.length+' (cs). Short URL: '+shortURL.length+' (cs). You saved: '+ (inputURL.length-shortURL.length)+' (cs)';
           tic.copyToClipboard();
         }
       }
