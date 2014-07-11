@@ -24,30 +24,33 @@
     h1{
       font:bold 30px Tahoma;
     }
-    header, session, footer, aside, nav, article, hgroup{
+    header, section, footer, aside, nav, article, hgroup{
       display:block;
     }
     body{
-      width:100%;
+      width:90%;
       display:-webkit-box;
+      display:-moz-box;
       -webkit-box-pack:center;
+      -moz-box-pack:center;
     }
     #big_wrapper{
       max-width:1000px;
       margin:10px 0px;
       display:-webkit-box;
+      display:-moz-box;
       -webkit-box-orient: vertical;
+      -moz-box-orient: vertical;
       -webkit-box-flex:1;
+      -moz-box-flex:1;
     }
     #top_header{
       padding: 10px;
     }
+
     #the_footer{
-      width: 100%;
       text-align:center;
-      padding: 5px;
-      border-top:2px solid green;
-      margin-top: 5px;
+      border-top:1px solid green;
     }
 
     .link_icon{
@@ -57,7 +60,22 @@
 
     #main-contain{
       display:-webkit-box;
+      display:-moz-box;
       -webkit-box-orient:vertical;
+      -moz-box-orient:vertical;
+    }
+    
+    .thumbnail{
+      text-align: center;
+    }
+
+    .thumb-image{
+      width: 171px;
+      height: 180px;
+    }
+
+    .btn-view-detail{
+      width: 100%;
     }
   </style>
   <title>URL5|Shorten URL</title>
