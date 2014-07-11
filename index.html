@@ -28,7 +28,7 @@
       display:block;
     }
     body{
-      width:90%;
+      width:100%;
       display:-webkit-box;
       display:-moz-box;
       -webkit-box-pack:center;
@@ -51,6 +51,7 @@
     #the_footer{
       text-align:center;
       border-top:1px solid green;
+      margin-top: 5px;
     }
 
     .link_icon{
@@ -98,21 +99,21 @@
   <div id='big_wrapper'>
     <!--Header -->
     <header id="top_header">
-      <h1>URL5</h1>
-      <h4 id='slogan-text'>Shorten URL</h4>
+      <h1><a href="http://url5.it">URL5</a></h1>
+      <h4 id='slogan-text'><a href="http://url5.it">Shorten URL</a></h4>
     </header>
     <!--Main contain -->
     <div class="container bs-docs-container" id='main-contain'>
         <div class="input-group" style="width:80%" >
-          <input type="text" class="form-control" id='input-url' placeholder="Paste the long URL here and ... Tic!" onclick="this.select();">
+          <input type="text" class="form-control" id='input-url' placeholder="Paste your URL here" onclick="this.select();">
           <span class="input-group-btn">
-            <button class="btn btn-default" type="button" id='btConvert'>Shorten!</button>
+            <button class="btn btn-info" type="button" id='btConvert'>Go !</button>
           </span>
         </div><!-- /input-group -->
          <div class="input-group" style="margin-top:30px;width:80%" >
-          <input type="text" class="form-control" id='short-url' placeholder="The short url is here. Coppy and tweet!"  onclick="this.select();">
+          <input type="text" class="form-control" id='short-url' placeholder="The short url is here. Copy and tweet!"  onclick="this.select();">
           <span class="input-group-btn">
-            <button class="btn btn-default" type="button" id='btCopy'>Copy</button>
+            <button class="btn btn-info" type="button" id='btCopy'>Copy</button>
           </span>
         </div><!-- /input-group -->
         <div role="alert" id='messages' style="margin-top:30px;margin-bottom: 30px;width:80%"></div>
@@ -122,11 +123,11 @@
 <!--Footer -->
 <footer id='the_footer'>
   <div id='social_network'>
-    <a href="mailto:crocode89@gmail.com"><img src="images/email.png" class='link_icon'></a>
+    Contact - <a href="mailto:crocode89@gmail.com"><img src="images/email.png" class='link_icon'></a>
     <a href="https://www.facebook.com/url5it"><img src="images/facebook.png" class='link_icon'></a>
     <a href="https://twitter.com/url5it"><img src="images/twitter.png" class='link_icon'></a>
   </div>
-  URL5it - <a href="http://url5.it">http://url5.it</a> - <a href="mailto: crocode89@gmail.com">crocode89@gmail.com</a>
+  URL5it - <a href="http://url5.it">http://url5.it</a>
 </footer>
 <!-- End of main body -->
 </div>
