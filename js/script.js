@@ -8,7 +8,10 @@ tic={
     console.log('shortURL: ' + shortURL);
     if(shortURL.length!=""){
       console.log('Request server to get real url');
+      document.getElementById('redirectContent').removeAttribute('hidden');
       tic.getRealURL(shortURL);
+    }else{
+      document.getElementById('main-contain').removeAttribute('hidden');
     }
     var btConvert = document.getElementById('btConvert');
     btConvert.addEventListener('click',tic.convertURL,false);
@@ -54,9 +57,10 @@ tic={
           message.innerHTML="Long URL: " + inputURL.length+' (cs). Short URL: '+shortURL.length+' (cs). You saved: '+ (inputURL.length-shortURL.length)+' (cs)';
           tic.copyToClipboard();
         }
-      }else{
-          message.setAttribute('class','alert alert-danger');
-          message.innerHTML="Response status code: "+xmlhttp.status;
+      }
+      if(xmlhttp.status!=200){
+        document.getElementById('main-contain').removeAttribute('hidden');
+        document.getElementById('redirectContent').setAttribute('hidden',true);
       }
     }
     xmlhttp.open("GET","php/insertURL.php?k="+key+"&v="+inputURL,true);
@@ -81,10 +85,12 @@ tic={
         }else{
           window.location.replace(listLongURLs[0]);
         }
-      }else{
-          message.setAttribute('class','alert alert-danger');
-          message.innerHTML="Response status code: "+xmlhttp.status;
       }
+      if(xmlhttp.status!=200){
+        document.getElementById('main-contain').removeAttribute('hidden');
+        document.getElementById('redirectContent').setAttribute('hidden',true);
+      }
+
     }
     xmlhttp.open("GET","php/getRealURL.php?k="+shortURL,true);
     xmlhttp.send();
