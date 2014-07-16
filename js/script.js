@@ -58,10 +58,6 @@ tic={
           tic.copyToClipboard();
         }
       }
-      if(xmlhttp.status!=200){
-        document.getElementById('main-contain').removeAttribute('hidden');
-        document.getElementById('redirectContent').setAttribute('hidden',true);
-      }
     }
     xmlhttp.open("GET","php/insertURL.php?k="+key+"&v="+inputURL,true);
     xmlhttp.send();
@@ -86,11 +82,6 @@ tic={
           window.location.replace(listLongURLs[0]);
         }
       }
-      if(xmlhttp.status!=200){
-        document.getElementById('main-contain').removeAttribute('hidden');
-        document.getElementById('redirectContent').setAttribute('hidden',true);
-      }
-
     }
     xmlhttp.open("GET","php/getRealURL.php?k="+shortURL,true);
     xmlhttp.send();
