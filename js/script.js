@@ -4,7 +4,6 @@ tic={
   chars  :['x','l','u','o','n','g','a','b','t','i','c'],
   message:null,
   startingPoint : function () {
-    btnTweet.disabled=true;
     var shortURL = window.location.search.replace('?','');
     console.log('shortURL: ' + shortURL);
     if(shortURL.length!=""){
@@ -56,18 +55,33 @@ tic={
           document.getElementById("short-url").value=shortURL;
           message.setAttribute('class','alert alert-success');
           message.innerHTML="Long URL: " + inputURL.length+' (cs). Short URL: '+shortURL.length+' (cs). You saved: '+ (inputURL.length-shortURL.length)+' (cs)';
-          tic.copyToClipboard();
-          var btnTweet = document.getElementById('btnTweet');
-          btnTweet.setAttribute('data-url',shortURL);
-          btnTweet.setAttribute('data-text','Enter your mesasge to share');
-          btnTweet.disabled=false;
+          tic.createTweetButton(shortURL);
         }
       }
     }
     xmlhttp.open("GET","php/insertURL.php?k="+key+"&v="+inputURL,true);
     xmlhttp.send();
   },
-
+  // <a href="https://twitter.com/share" class="twitter-share-button" data-lang="en"  data-size="large" 
+  // data-text="Enter your message to share" data-count="vertical" 
+  // counturl="http://groups.google.com/group/twitter-api-announce">Tweet</a>
+  //           <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+  createTweetButton:function (shortURL) {
+    var btn=document.createElement('a');
+    btn.innerHTML="Tweet";
+    btn.setAttribute('href',"https://twitter.com/share");
+    btn.setAttribute('class',"twitter-share-button");
+    btn.setAttribute('data-lang','en');
+    btn.setAttribute('data-size','large');
+    btn.setAttribute('data-text',"Enter your message to share");
+    btn.setAttribute('data-url',shortURL);
+    btn.setAttribute('data-count','vertical');
+    btn.setAttribute('counturl',"http://groups.google.com/group/twitter-api-announce");
+    var script = document.createElement('script');
+    script.innerHTML='!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");'
+    document.getElementById('btnTweet').appendChild(btn);
+    document.getElementById('btnTweet').appendChild(script);
+  }
   getRealURL : function (shortURL) {
     console.log('Get real url with: key=' + shortURL);
     if (window.XMLHttpRequest) {
