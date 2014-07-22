@@ -62,6 +62,7 @@ tic={
     xmlhttp.open("GET","php/insertURL.php?k="+key+"&v="+inputURL,true);
     xmlhttp.send();
   },
+
   createTweetButton:function (shortURL) {
     var btn=document.createElement('a');
     btn.innerHTML="Tweet";
@@ -71,13 +72,13 @@ tic={
     btn.setAttribute('data-size','large');
     btn.setAttribute('data-text',"Enter your message to share");
     btn.setAttribute('data-url',shortURL);
-    btn.setAttribute('data-count','vertical');
-    btn.setAttribute('counturl',"http://groups.google.com/group/twitter-api-announce");
+    btn.setAttribute('data-count','none');
     var script = document.createElement('script');
     script.innerHTML='!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");'
     document.getElementById('btnTweet').appendChild(btn);
     document.getElementById('btnTweet').appendChild(script);
   },
+
   getRealURL : function (shortURL) {
     console.log('Get real url with: key=' + shortURL);
     if (window.XMLHttpRequest) {
