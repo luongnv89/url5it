@@ -4,6 +4,7 @@ tic={
   chars  :['x','l','u','o','n','g','a','b','t','i','c'],
   message:null,
   startingPoint : function () {
+    btnTweet.disabled=true;
     var shortURL = window.location.search.replace('?','');
     console.log('shortURL: ' + shortURL);
     if(shortURL.length!=""){
@@ -56,6 +57,10 @@ tic={
           message.setAttribute('class','alert alert-success');
           message.innerHTML="Long URL: " + inputURL.length+' (cs). Short URL: '+shortURL.length+' (cs). You saved: '+ (inputURL.length-shortURL.length)+' (cs)';
           tic.copyToClipboard();
+          var btnTweet = document.getElementById('btnTweet');
+          btnTweet.setAttribute('data-url',shortURL);
+          btnTweet.setAttribute('data-text','Enter your mesasge to share');
+          btnTweet.disabled=false;
         }
       }
     }
