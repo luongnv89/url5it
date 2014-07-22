@@ -62,10 +62,6 @@ tic={
     xmlhttp.open("GET","php/insertURL.php?k="+key+"&v="+inputURL,true);
     xmlhttp.send();
   },
-  // <a href="https://twitter.com/share" class="twitter-share-button" data-lang="en"  data-size="large" 
-  // data-text="Enter your message to share" data-count="vertical" 
-  // counturl="http://groups.google.com/group/twitter-api-announce">Tweet</a>
-  //           <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
   createTweetButton:function (shortURL) {
     var btn=document.createElement('a');
     btn.innerHTML="Tweet";
@@ -81,7 +77,7 @@ tic={
     script.innerHTML='!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");'
     document.getElementById('btnTweet').appendChild(btn);
     document.getElementById('btnTweet').appendChild(script);
-  }
+  },
   getRealURL : function (shortURL) {
     console.log('Get real url with: key=' + shortURL);
     if (window.XMLHttpRequest) {
