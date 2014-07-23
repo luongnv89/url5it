@@ -55,12 +55,32 @@ url5it={
           document.getElementById("short-url").value=shortURL;
           message.setAttribute('class','alert alert-success');
           message.innerHTML="Long URL: " + inputURL.length+' (cs). Short URL: '+shortURL.length+' (cs). You saved: '+ (inputURL.length-shortURL.length)+' (cs)';
+<<<<<<< HEAD
           url5it.copyToClipboard();
+=======
+          tic.createTweetButton(shortURL);
+>>>>>>> 274c095ed580744c923be5407c05714141b8e4af
         }
       }
     }
     xmlhttp.open("GET","php/insertURL.php?k="+key+"&v="+inputURL,true);
     xmlhttp.send();
+  },
+
+  createTweetButton:function (shortURL) {
+    var btn=document.createElement('a');
+    btn.innerHTML="Tweet";
+    btn.setAttribute('href',"https://twitter.com/share");
+    btn.setAttribute('class',"twitter-share-button");
+    btn.setAttribute('data-lang','en');
+    btn.setAttribute('data-size','large');
+    btn.setAttribute('data-text',"Enter your message to share");
+    btn.setAttribute('data-url',shortURL);
+    btn.setAttribute('data-count','none');
+    var script = document.createElement('script');
+    script.innerHTML='!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");'
+    document.getElementById('btnTweet').appendChild(btn);
+    document.getElementById('btnTweet').appendChild(script);
   },
 
   getRealURL : function (shortURL) {

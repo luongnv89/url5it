@@ -46,6 +46,8 @@
     }
     #top_header{
       padding: 10px;
+      margin-top: 50px;
+      margin-bottom: 80px;
     }
 
     #the_footer{
@@ -101,21 +103,20 @@
   <div id='big_wrapper'>
     <!--Header -->
     <header id="top_header">
-      <h1><a href="http://url5.it">URL5</a></h1>
-      <h4 id='slogan-text'><a href="http://url5.it">Shorten URL</a></h4>
+      <img src="images/logo_small.png" width="100px">
+      <!-- <h4 id='slogan-text'><a href="http://url5.it">Shortener URL</a></h4> -->
     </header>
     <!--Main contain -->
     <div class="container bs-docs-container" id='main-contain' hidden>
         <div class="input-group" style="width:80%" >
-          <input type="text" class="form-control" id='input-url' placeholder="Paste your URL here" onclick="this.select();">
+          <input type="text" class="form-control" id='input-url' placeholder="Paste long URL here" onclick="this.select();">
           <span class="input-group-btn">
-            <button class="btn btn-info" type="button" id='btConvert'>Go !</button>
+            <button class="btn btn-info" type="button" id='btConvert'>Shorten !</button>
           </span>
         </div><!-- /input-group -->
          <div class="input-group" style="margin-top:30px;width:80%" >
-          <input type="text" class="form-control" id='short-url' placeholder="The short url is here. Copy and tweet!"  onclick="this.select();">
-          <span class="input-group-btn">
-            <button class="btn btn-info" type="button" id='btCopy'>Copy</button>
+          <input type="text" class="form-control" id='short-url' placeholder="The short url here. Click and tweet"  onclick="this.select();">
+          <span class="input-group-btn" id="btnTweet" style="margin-right:5px;">
           </span>
         </div><!-- /input-group -->
         <div role="alert" id='messages' style="margin-top:30px;margin-bottom: 30px;width:80%"></div>
