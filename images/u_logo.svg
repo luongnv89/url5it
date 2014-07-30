@@ -11,12 +11,12 @@
    xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="400"
-   height="400"
+   width="240"
+   height="240"
    id="svg2"
    version="1.1"
    inkscape:version="0.48.4 r9939"
-   sodipodi:docname="logo.svg">
+   sodipodi:docname="u_logo.svg">
   <defs
      id="defs4">
     <linearGradient
@@ -81,7 +81,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -89,12 +89,12 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(0,-652.36218)">
+     transform="translate(0,-812.36218)">
     <g
        id="g5366"
        transform="translate(-91,21)">
       <flowRoot
-         transform="matrix(10.51118,0,0,10.251179,-924.73721,-479.37143)"
+         transform="matrix(10.949146,0,0,9.4337281,-1056.4346,-286.87656)"
          style="font-size:39.79713821px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#0094e8;fill-opacity:1;stroke:none;font-family:Trebuchet MS;-inkscape-font-specification:Trebuchet MS Bold"
          id="flowRoot2985-4"
          xml:space="preserve"><flowRegion
