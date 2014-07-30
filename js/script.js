@@ -1,5 +1,5 @@
 
-tic={
+url5it={
   numbers:['-','1','2','3','4','5','6','7','8','9','0'],
   chars  :['x','l','u','o','n','g','a','b','t','i','c'],
   message:null,
@@ -9,12 +9,12 @@ tic={
     if(shortURL.length!=""){
       console.log('Request server to get real url');
       document.getElementById('redirectContent').removeAttribute('hidden');
-      tic.getRealURL(shortURL);
+      url5it.getRealURL(shortURL);
     }else{
       document.getElementById('main-contain').removeAttribute('hidden');
     }
     var btConvert = document.getElementById('btConvert');
-    btConvert.addEventListener('click',tic.convertURL,false);
+    btConvert.addEventListener('click',url5it.convertURL,false);
     message = document.getElementById('messages');
   },
 
@@ -22,10 +22,10 @@ tic={
     var key='';
     var inputURL = document.getElementById('input-url');
     console.log('Input URL: ' + inputURL);
-    if(tic.validateUrl(inputURL.value)){
-      key = tic.convertHashCode((inputURL.value).hashCode());
+    if(url5it.validateUrl(inputURL.value)){
+      key = url5it.convertHashCode((inputURL.value).hashCode());
       console.log('Key: '+ key);
-      tic.sendToServer(key,inputURL.value);
+      url5it.sendToServer(key,inputURL.value);
     }else{
       message.setAttribute('class','alert alert-warning');
       message.innerHTML="Your input-url is not validate";
@@ -55,7 +55,11 @@ tic={
           document.getElementById("short-url").value=shortURL;
           message.setAttribute('class','alert alert-success');
           message.innerHTML="Long URL: " + inputURL.length+' (cs). Short URL: '+shortURL.length+' (cs). You saved: '+ (inputURL.length-shortURL.length)+' (cs)';
+<<<<<<< HEAD
+          url5it.copyToClipboard();
+=======
           tic.createTweetButton(shortURL);
+>>>>>>> 274c095ed580744c923be5407c05714141b8e4af
         }
       }
     }
@@ -107,15 +111,15 @@ tic={
     var str = String(num),
     ret = '';
     for(var i=0;i<str.length;i++){
-      var index = tic.numbers.indexOf(str[i]);
-      ret+=tic.chars[index];
+      var index = url5it.numbers.indexOf(str[i]);
+      ret+=url5it.chars[index];
     }
     return ret; 
   },
 
   copyToClipboard:function(){
     var text = document.getElementById('short-url').value;    
-    if(tic.validateUrl(text)){
+    if(url5it.validateUrl(text)){
        var client =new ZeroClipboard(document.getElementById('btCopy'));
        client.on('ready',function (readyEvent) {
         ZeroClipboard.setData('text/plain',text);
@@ -125,7 +129,22 @@ tic={
         });
       });
    }
- }
+ },
+
+ /** Get client local information*/
+  getClientAddress:function () {
+    $.ajax({
+      url: "http://www.codehelper.io/api/ips/?js",
+      data: null,
+      type: 'GET',
+      crossDomain: true,
+      dataType: 'jsonp'
+
+    }).done( function( json ) {
+      url5it.clientAddress = json;
+    });
+  }
+
 
 }
 
@@ -143,4 +162,4 @@ String.prototype.hashCode = function() {
 
 
 
-document.addEventListener('DOMContentLoaded',tic.startingPoint,false);
+document.addEventListener('DOMContentLoaded',url5it.startingPoint,false);
