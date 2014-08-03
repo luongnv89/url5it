@@ -47,7 +47,7 @@
     #top_header{
       padding: 10px;
       margin-top: 50px;
-      margin-bottom: 80px;
+      margin-bottom: 50px;
     }
 
     #the_footer{
@@ -84,6 +84,10 @@
       width: 100%;
     }
 
+    #btlabel{
+      font-size: 120%;
+      font-weight: bold;
+    }
 
   </style>
   <title>URL5|Shorten URL</title>
@@ -106,19 +110,19 @@
   <div id='big_wrapper'>
     <!--Header -->
     <header id="top_header">
-      <img src="images/logo_website.png" width="200px">
+      <img src="images/logo_website.png" width="200px"><h1><small>Easy & Simple</small></h1>
       <!-- <h4 id='slogan-text'><a href="http://url5.it">Shortener URL</a></h4> -->
     </header>
     <!--Main contain -->
     <div class="container bs-docs-container" id='main-contain' hidden>
-        <div class="input-group" style="width:80%" >
+        <div class="input-group" style="width:90%" >
           <input type="text" class="form-control" id='input-url' placeholder="Paste long URL here" onclick="this.select();">
           <span class="input-group-btn">
-            <button class="btn btn-info" type="button" id='btConvert'>Shorten !</button>
+            <button class="btn btn-info" type="button" id='btConvert'><span id='btlabel'>Shorten</span></button>
           </span>
         </div><!-- /input-group -->
-         <div class="input-group" style="margin-top:30px;width:80%" >
-          <input type="text" class="form-control" id='short-url' placeholder="The short url here. Click and tweet"  onclick="this.select();">
+         <div class="input-group" style="margin-top:30px;width:40%" >
+          <input type="text" class="form-control" id='short-url' placeholder="Short url"  onclick="this.select();">
           <span class="input-group-btn" id="btnTweet" style="margin-right:5px;">
           </span>
         </div><!-- /input-group -->
@@ -132,7 +136,7 @@
 <!--Footer -->
 <footer id='the_footer'>
   <div id='social_network'>
-    <a href="mailto:crocode89@gmail.com"><img src="images/email.png" class='link_icon'></a>
+    Contact us: <a href="mailto:crocode89@gmail.com"><img src="images/email.png" class='link_icon'></a>
     <a href="https://www.facebook.com/url5it"><img src="images/facebook.png" class='link_icon'></a>
     <a href="https://twitter.com/url5it"><img src="images/twitter.png" class='link_icon'></a>
   </div>
